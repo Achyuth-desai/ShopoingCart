@@ -1,4 +1,4 @@
-# ShopoingCart
+# ShoppingCart
 It is a shopping cart REST API that handles CRUD operations for a specific user like create cart, get items, add items and remove items.
 # Getting Started
 ## Dependencies
