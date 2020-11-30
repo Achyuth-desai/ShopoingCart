@@ -11,7 +11,7 @@ $ pip install flask
 ```
 $ pip3 install flask
 ```
-##Installation
+## Installation
 1.Download the files as a zip and extract the files in your PC.
 2.Run the index.py file with the following command:
 ```
