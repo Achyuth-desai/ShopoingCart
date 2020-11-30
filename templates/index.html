@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Shopping Cart API
+    </title>
+    <style type="text/css">
+        *{
+            box-sizing: border-box;
+        }
+        #cart-input, #displayitems{
+            padding: 10px;
+        }
+        #item-name{
+            width: 370px;
+            padding-left: 10px;
+        }
+        #add-button{
+            background-color: #4CAF50;
+            padding: 8px 5px;
+            color: white;
+            cursor: pointer;
+            border: none;
+            opacity: 0.8;
+        }
+        #delete-button{
+            background-color: red;
+            padding: 8px 5px;
+            color: white;
+            cursor: pointer;
+            border: none;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+    <body>
+        <div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+        <h1>Shopping cart API</h1>
+
+        <div id="cart-input">
+        <form action="/" method="POST">
+            <label>Enter item name:</label>
+            <input type="text" name="item" autocomplete="off">
+            <button type="submit" id="add-button">ADD</button>
+        </form>
+        </div>
+        <div id="displayitems">
+            <label>Items in cart : </label>
+        </div>
+
+        
+            <table>
+                {% for i,j in zip(items, range(length)) %}
+                <tr>
+                    <td><p type="text" id="item-name">{{ i }}</p></td>
+                    <form action="/delete/" method="GET">
+                        <td style="padding-left: 25px;">
+                            <button id="delete-button"><input type="hidden" name="delete" value={{ j }} >DELETE</button>
+                        </td>
+                    </form>
+                </tr>
+                {% endfor %}
+            </table>
+        
+    </body>
+</html>
